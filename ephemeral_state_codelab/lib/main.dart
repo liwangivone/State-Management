@@ -1,25 +1,29 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyEphemeralApp());
+void main() => runApp(const MyEphemeralApp());
 
 class MyEphemeralApp extends StatelessWidget {
+  const MyEphemeralApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(title: Text('Ephemeral State Example')),
-        body: CounterWidget(),
+        appBar: AppBar(title: const Text('Ephemeral State Example')),
+        body: const CounterWidget(),
       ),
     );
   }
 }
 
 class CounterWidget extends StatefulWidget {
+  const CounterWidget({super.key});
+
   @override
-  _CounterWidgetState createState() => _CounterWidgetState();
+  CounterWidgetState createState() => CounterWidgetState();
 }
 
-class _CounterWidgetState extends State<CounterWidget> {
+class CounterWidgetState extends State<CounterWidget> {
   int _counter = 0;
 
   @override
@@ -29,14 +33,14 @@ class _CounterWidgetState extends State<CounterWidget> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Text('Counter Value: $_counter'),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           ElevatedButton(
             onPressed: () {
               setState(() {
                 _counter++;
               });
             },
-            child: Text('Increment'),
+            child: const Text('Increment'),
           ),
         ],
       ),
